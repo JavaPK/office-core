@@ -8,3 +8,13 @@ spring:
     password: postgres
   liquibase:
     change-log: classpath:db/changelog/changelog.yml
+  kafka:
+    bootstrap-servers: localhost:29092
+
+office-core:
+  kafka:
+    topics:
+      email:
+        name: pl.pk.office.email
+        partitions: 1
+        replicationFactor: 1
