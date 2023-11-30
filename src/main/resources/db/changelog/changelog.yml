@@ -2,3 +2,6 @@ databaseChangeLog:
   - include:
       file: ./changes/202309111716_init_database.yml
       relativeToChangelogFile: true
+  - include:
+      file: ./changes/202311301627_create_table_account.yml
+      relativeToChangelogFile: true

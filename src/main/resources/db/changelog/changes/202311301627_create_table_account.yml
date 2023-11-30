@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: create table account
+      author: mzbiewski
+      preConditions:
+        - onFail: MARK_RAN
+          not:
+            tableExists:
+              tableName: ACCOUNT
+      changes:
+        - createTable:
+            tableName: ACCOUNT
+            columns:
+              - column:
+                  name: ACCOUNT_ID
+                  type: uuid
+                  constraints:
+                    - primaryKey: true
+                      primaryKeyName: ACCOUNT_ID_PK
+              - column:
+                  name: EMAIL
+                  type: varchar(255)
+                  constraints:
+                    - nullable: false
+              - column:
+                  name: PASSWORD
+                  type: varchar(62)
+                  constraints:
+                    - nullable: false
+              - column:
+                  name: ACTIVE_TOKEN
+                  type: uuid
+              - column:
+                  name: IS_ACTIVE
+                  type: boolean
+                  constraints:
+                    - nullable: false
+              - column:
+                  name: ACTIVATE_TOKEN_VALIDATION_ TIME
+                  type: timestamp
