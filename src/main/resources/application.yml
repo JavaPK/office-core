@@ -16,5 +16,5 @@ office-core:
     topics:
       email:
         name: pl.pk.office.email
-        partitions: 1
+        partitions: 2
         replicationFactor: 1

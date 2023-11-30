@@ -3,6 +3,7 @@ package com.ttsw.officecore.configuration;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.ttsw.officecore.api.Event;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.IntegerSerializer;
 import org.apache.kafka.common.serialization.StringSerializer;
@@ -12,6 +13,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
+import org.springframework.kafka.support.serializer.JsonSerializer;
 
 @Configuration
 public class KafkaEventProducerConfiguration {
@@ -20,16 +22,16 @@ public class KafkaEventProducerConfiguration {
 	private String bootstrapServersUrl;
 
 	@Bean
-	public ProducerFactory<Integer, String> producerFactory() {
+	public ProducerFactory<Integer, Event> producerFactory() {
 		Map<String, Object> producerFactoryProperties = new HashMap<>();
 		producerFactoryProperties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServersUrl);
 		producerFactoryProperties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, IntegerSerializer.class);
-		producerFactoryProperties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+		producerFactoryProperties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 		return new DefaultKafkaProducerFactory(producerFactoryProperties);
 	}
 
 	@Bean
-	public KafkaTemplate<Integer, String> kafkaTemplate(){
+	public KafkaTemplate<Integer, Event> kafkaTemplate(){
 		return new KafkaTemplate(producerFactory());
 	}
 }

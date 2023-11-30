@@ -6,21 +6,20 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.kafka.core.ProducerFactory;
 
 @SpringBootApplication
 public class OfficeCoreApplication {
 
-	@Autowired
-	private KafkaTemplate kafkaTemplate;
+    @Autowired
+    private KafkaTemplate kafkaTemplate;
 
-	public static void main(String[] args) {
-		SpringApplication.run(OfficeCoreApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(OfficeCoreApplication.class, args);
+    }
 
-	@EventListener(ApplicationReadyEvent.class)
-	public void sendEvent(){
-		kafkaTemplate.send("pl.pk.office.email", "Sprawdzam czy działa");
-	}
+    @EventListener(ApplicationReadyEvent.class)
+    public void sendEvent() {
+        kafkaTemplate.send("pl.pk.office.email", "Sprawdzam czy działa");
+    }
 
 }

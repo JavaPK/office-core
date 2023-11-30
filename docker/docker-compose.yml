@@ -1,7 +1,8 @@
 version: '3.8'
 services:
-  db:
-    image: postgres:15.1-alpine3.17
+  postgres:
+    container_name: postgres_office_db
+    image: postgres:14-alpine
     restart: always
     environment:
       - POSTGRES_USER=postgres
