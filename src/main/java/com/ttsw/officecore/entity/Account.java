@@ -1,32 +1,34 @@
 package com.ttsw.officecore.entity;
 
-import jakarta.persistence.*;
-import lombok.Data;
-
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import java.util.Date;
 import java.util.UUID;
 
 @Entity
 @Table(name = "Account")
-@Data
 public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    UUID accountId;
+    private UUID accountId;
 
     @Column(name = "Email", length = 85, nullable = false)
-    String email;
+    private String email;
 
     @Column(name = "Password", length = 64, nullable = false)
-    String password;
+    private String password;
 
     @Column(name = "Active_Token")
-    UUID activeToken;
+    private UUID activeToken;
 
     @Column(name = "Active", nullable = false)
-    boolean isActive;
+    private boolean isActive;
 
     @Column(name = "Timestamp_Validation_Time")
-    Date timestampTokenValidationTime;
+    private Date timestampTokenValidationTime;
 }
