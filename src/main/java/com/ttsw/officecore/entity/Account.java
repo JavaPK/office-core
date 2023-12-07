@@ -23,8 +23,8 @@ public class Account {
     @Column(name = "Password", length = 64, nullable = false)
     private String password;
 
-    @Column(name = "Active_Token")
-    private UUID activeToken;
+    @Column(name = "ActivationToken")
+    private UUID activationToken;
 
     @Column(name = "Active", nullable = false)
     private boolean isActive;
