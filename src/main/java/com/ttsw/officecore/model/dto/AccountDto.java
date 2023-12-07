@@ -1,4 +1,4 @@
-package com.ttsw.officecore.common;
+package com.ttsw.officecore.model.dto;
 
 import lombok.Getter;
 import lombok.Setter;

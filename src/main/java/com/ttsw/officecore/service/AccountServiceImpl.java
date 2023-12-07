@@ -1,15 +1,23 @@
 package com.ttsw.officecore.service;
 
-import com.ttsw.officecore.common.AccountDto;
+import com.ttsw.officecore.model.dto.AccountDto;
+import com.ttsw.officecore.model.entity.AccountEntity;
+import com.ttsw.officecore.model.mapper.AccountMapper;
+import com.ttsw.officecore.repository.AccountRepository;
 import com.ttsw.officecore.validation.AccountCreationValidation;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
-@NoArgsConstructor
+
 @Service
+@RequiredArgsConstructor
 public class AccountServiceImpl implements AccountService {
+
+    private final AccountRepository accountRepository;
+    private final AccountCreationValidation accountCreationValidation;
+    private final AccountMapper accountMapper;
 
     @Override
     public void activateAccount(UUID token) {
@@ -18,9 +26,9 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public void createAccount(AccountDto accountDto) {
-        if (AccountCreationValidation.validate(accountDto)) {
-
-        }
+        accountCreationValidation.validate(accountDto);
+        AccountEntity newAccount = accountMapper.toEntity(accountDto, UUID.randomUUID());
+        accountRepository.save(newAccount);
     }
 
 

@@ -36,5 +36,5 @@ databaseChangeLog:
                   constraints:
                     - nullable: false
               - column:
-                  name: ACTIVATE_TOKEN_VALIDATION_ TIME
+                  name: ACTIVATE_TOKEN_VALIDATION_TIME
                   type: timestamp

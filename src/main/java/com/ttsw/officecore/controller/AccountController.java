@@ -1,7 +1,7 @@
 package com.ttsw.officecore.controller;
 
 import com.ttsw.officecore.api.ApiConstants;
-import com.ttsw.officecore.common.AccountDto;
+import com.ttsw.officecore.model.dto.AccountDto;
 import com.ttsw.officecore.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

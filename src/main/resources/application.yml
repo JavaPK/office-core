@@ -18,3 +18,5 @@ office-core:
         name: pl.pk.office.email
         partitions: 2
         replicationFactor: 1
+  activationToken:
+    expireTime: 48
