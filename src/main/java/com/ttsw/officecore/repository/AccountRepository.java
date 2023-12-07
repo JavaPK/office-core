@@ -1,6 +1,6 @@
 package com.ttsw.officecore.repository;
 
-import com.ttsw.officecore.entity.Account;
+import com.ttsw.officecore.model.entity.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;
@@ -9,7 +9,7 @@ import java.util.UUID;
 @Repository
 public interface AccountRepository extends JpaRepository<Account, UUID> {
 
-    Optional<Account> findByEmail(Account account);
+    Optional<Account> findByEmail(String email);
 
-    Account findByActivationToken(Account account);
+    Account findByActivationToken(UUID activationToken);
 }

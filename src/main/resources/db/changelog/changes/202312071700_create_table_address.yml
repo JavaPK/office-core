@@ -1,0 +1,54 @@
+databaseChangeLog:
+  - changeSet:
+      id: CREATE TABLE ADDRESS
+      author: martinezxcv
+      preConditions:
+        - onFail: MARK_RAN
+          not:
+            tableExists:
+              tableName: ADDRESS
+      changes:
+        - createTable:
+            tableName: ADDRESS
+            columns:
+              - column:
+                  name: ADDRESS_ID
+                  type: UUID
+                  constraints:
+                    - primaryKey: TRUE
+                      primaryKeyName: ADDRESS_ID_PK
+              - column:
+                  name: VOIVODESHIP
+                  type: VARCHAR(100)
+                  constraints:
+                    - nullable: FALSE
+              - column:
+                  name: COUNTRY
+                  type: VARCHAR(100)
+                  constraints:
+                    - nullable: FALSE
+              - column:
+                  name: COMMUNE
+                  type: VARCHAR(100)
+                  constraints:
+                    - nullable: FALSE
+              - column:
+                  name: CITY
+                  type: VARCHAR(100)
+                  constraints:
+                    - nullable: FALSE
+              - column:
+                  name: STREET
+                  type: VARCHAR(100)
+                  constraints:
+                    - nullable: FALSE
+              - column:
+                  name: POSTAL_CODE
+                  type: VARCHAR(6)
+                  constraints:
+                    - nullable: false
+              - column:
+                  name: FLAT_NUMBER
+                  type: VARCHAR(20)
+                  constraints:
+                    - nullable: FALSE

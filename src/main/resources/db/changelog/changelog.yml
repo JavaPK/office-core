@@ -5,3 +5,9 @@ databaseChangeLog:
   - include:
       file: ./changes/202311301627_create_table_account.yml
       relativeToChangelogFile: true
+  - include:
+      file: ./changes/202312071650_create_table_office.yml
+      relativeToChangelogFile: true
+  - include:
+      file: ./changes/202312071700_create_table_address.yml
+      relativeToChangelogFile: true

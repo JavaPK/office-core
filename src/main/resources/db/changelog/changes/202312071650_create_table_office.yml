@@ -1,0 +1,45 @@
+databaseChangeLog:
+  - changeSet:
+      id: CREATE TABLE OFFICE
+      author: martinezxcv
+      preConditions:
+        - onFail: MARK_RAN
+          not:
+            tableExists:
+              tableName: OFFICE
+      changes:
+        - createTable:
+            tableName: OFFICE
+            columns:
+              - column:
+                  name: OFFICE_ID
+                  type: UUID
+                  constraints:
+                    - primaryKey: TRUE
+                      primaryKeyName: OFFICE_ID_PK
+              - column:
+                  name: NAME
+                  type: VARCHAR(255)
+                  constraints:
+                    - nullable: FALSE
+              - column:
+                  name: ADDRESS_ID
+                  type: UUID
+                  constraints:
+                    - foreignKeyName: OFFICE_ADDRESS_FK
+                    - references: ADDRESS(ADDRESS_ID)
+                    - nullable: FALSE
+              - column:
+                  name: OFFICE_DETAILS_ID
+                  type: UUID
+                  constraints:
+                    - foreignKeyName: OFFICE_OFFICE_DETAILS_FK
+                    - references: OFFICE_DETAILS(OFFICE_DETAILS_ID)
+                    - nullable: FALSE
+              - column:
+                  name: USER_ID
+                  type: UUID
+                  constraints:
+                    - foreignKeyName: OFFICE_USER_FK
+                    - references: USER(USER_ID)
+                    - nullable: FALSE
