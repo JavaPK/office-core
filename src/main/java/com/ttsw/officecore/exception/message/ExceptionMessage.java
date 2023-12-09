@@ -9,6 +9,6 @@ public enum ExceptionMessage {
 
     EMAIL_ALREADY_EXISTS("20231130:173100", "Email already exists.");
 
-    private String code;
-    private String message;
+    private final String code;
+    private final String message;
 }

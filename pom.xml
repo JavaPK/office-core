@@ -17,9 +17,12 @@
 		<java.version>17</java.version>
 		<maven.compiler.plugin>3.11.0</maven.compiler.plugin>
 		<spring.boot.starter>3.1.5</spring.boot.starter>
+		<spring.security>6.1.5</spring.security>
 		<postgresql>42.6.0</postgresql>
 		<liquibase>4.24.0</liquibase>
 		<lombok>1.18.30</lombok>
+		<json.web.token>0.11.5</json.web.token>
+		<hibernate.validator>8.0.1.Final</hibernate.validator>
 		<lombok.mapstruct.binding>0.2.0</lombok.mapstruct.binding>
 		<org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
 	</properties>
@@ -40,6 +43,18 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 			<version>${spring.boot.starter}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+			<version>${spring.boot.starter}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${spring.security}</version>
 		</dependency>
 
 		<dependency>
@@ -79,6 +94,31 @@
 			<artifactId>spring-kafka</artifactId>
 			<version>3.1.0</version>
 		</dependency>
+
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-api</artifactId>
+			<version>${json.web.token}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-impl</artifactId>
+			<version>${json.web.token}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-jackson</artifactId>
+			<version>${json.web.token}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate.validator</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>${hibernate.validator}</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

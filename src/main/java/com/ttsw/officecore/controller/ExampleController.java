@@ -14,11 +14,10 @@ import java.util.UUID;
 @RestController
 public class ExampleController {
 
-
     @GetMapping
     public ResponseEntity exception() {
         ErrorsDTO errorsDTO = ErrorsDTO.builder()
-                .erorrs(List.of(ErrorDTO.of( UUID.randomUUID(), ExceptionMessage.EMAIL_ALREADY_EXISTS.getMessage())))
+                .erorrs(List.of(ErrorDTO.of(UUID.randomUUID(), ExceptionMessage.EMAIL_ALREADY_EXISTS.getMessage())))
                 .build();
 
         throw new ValidationException(errorsDTO);

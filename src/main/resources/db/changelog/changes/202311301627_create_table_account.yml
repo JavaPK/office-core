@@ -28,7 +28,7 @@ databaseChangeLog:
                   constraints:
                     - nullable: false
               - column:
-                  name: ACTIVE_TOKEN
+                  name: ACTIVATE_TOKEN
                   type: uuid
               - column:
                   name: IS_ACTIVE
@@ -36,5 +36,5 @@ databaseChangeLog:
                   constraints:
                     - nullable: false
               - column:
-                  name: ACTIVATE_TOKEN_VALIDATION_ TIME
+                  name: ACTIVATE_TOKEN_VALIDATION_TIME
                   type: timestamp

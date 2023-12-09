@@ -6,10 +6,13 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Getter;
+
 import java.util.Date;
 import java.util.UUID;
 
 @Entity
+@Getter
 @Table(name = "Account")
 public class Account {
 
@@ -17,18 +20,16 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID accountId;
 
-    @Column(name = "Email", length = 85, nullable = false)
+    @Column(length = 85, nullable = false)
     private String email;
 
-    @Column(name = "Password", length = 64, nullable = false)
+    @Column(length = 64, nullable = false)
     private String password;
 
-    @Column(name = "ActivationToken")
-    private UUID activationToken;
+    private UUID activateToken;
 
-    @Column(name = "Active", nullable = false)
+    @Column(nullable = false)
     private boolean isActive;
 
-    @Column(name = "Timestamp_Validation_Time")
-    private Date timestampTokenValidationTime;
+    private Date activateTokenValidationTime;
 }

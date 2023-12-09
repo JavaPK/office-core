@@ -13,5 +13,5 @@ public class ValidationException extends RuntimeException {
         this.errorsDTO = errorsDTO;
     }
 
-    private ErrorsDTO errorsDTO;
+    private final ErrorsDTO errorsDTO;
 }
